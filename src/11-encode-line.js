@@ -8,8 +8,19 @@
  * For aabbbc should return 2a3bc
  *
  */
-function encodeLine(/* str */) {
-  throw new Error('Not implemented');
+function encodeLine(str) {
+  let a = 1;
+  let b = '';
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i + 1]) {
+      a++;
+    }
+    if (str[i] !== str[i + 1]) {
+      b = b.concat(`${a === 1 ? '' : a}${str[i]}`);
+      a = 1;
+    }
+  }
+  return a;
 }
 
 module.exports = encodeLine;
