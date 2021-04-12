@@ -9,18 +9,18 @@
  *
  */
 function encodeLine(str) {
+  const arr = str.split('');
   let a = 1;
   let b = '';
   for (let i = 0; i < str.length; i++) {
-    if (str[i] === str[i + 1]) {
+    if (arr[i] === arr[i + 1]) {
       a++;
-    }
-    if (str[i] !== str[i + 1]) {
-      b = b.concat(`${a === 1 ? '' : a}${str[i]}`);
+    } else {
+      b += a > 1 ? `${a}${arr[i]}` : arr[i];
       a = 1;
     }
   }
-  return a;
+  return b;
 }
 
 module.exports = encodeLine;
